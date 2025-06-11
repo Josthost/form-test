@@ -75,7 +75,3 @@ const isLimitExceededError = (error: any): boolean => {
 export const sendEmail = async (params: EmailParams): Promise<{code: string, success: boolean}> => {
   return trySendEmail(params, 0);
 };
-// Función pública modificada para retornar el código
-export const sendEmail = async (params: EmailParams): Promise<{code: string, success: boolean}> => {
-  return trySendEmail(params, 0);
-};
