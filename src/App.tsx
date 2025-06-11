@@ -1,20 +1,16 @@
 import React from 'react';
 import SupportForm from './components/SupportForm';
-import { HelpCircle, Mail } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 
 function App() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#E0D7A2' }}>
       <header className="text-white py-6 shadow-md" style={{ backgroundColor: '#820000' }}>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <div className="flex items-center space-x-2">
               <HelpCircle className="h-8 w-8" />
               <h1 className="text-2xl font-bold">Ticket Soporte BNV</h1>
-            </div>
-            <div className="flex items-center text-sm">
-              <Mail className="h-4 w-4 mr-1" />
-              <span>soporte@bnv.com</span>
             </div>
           </div>
         </div>
