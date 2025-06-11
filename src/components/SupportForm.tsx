@@ -171,7 +171,21 @@ const SupportForm: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-bnv-primary text-white py-2 px-4 rounded-md hover:bg-bnv-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-bnv-primary focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full text-white py-2 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+            style={{ 
+              backgroundColor: '#820000',
+              focusRingColor: '#820000'
+            }}
+            onMouseEnter={(e) => {
+              if (!isSubmitting) {
+                e.currentTarget.style.backgroundColor = '#a00000';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isSubmitting) {
+                e.currentTarget.style.backgroundColor = '#820000';
+              }
+            }}
           >
             {isSubmitting ? (
               <>

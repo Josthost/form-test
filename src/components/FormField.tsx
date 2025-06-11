@@ -16,7 +16,8 @@ const FormField: React.FC<FormFieldProps> = ({
     <div className="mb-4">
       <label 
         htmlFor={id} 
-        className="block text-sm font-medium text-gray-700 mb-1"
+        className="block text-sm font-medium mb-1"
+        style={{ color: '#820000' }}
       >
         {label} {required && <span className="text-red-500">*</span>}
       </label>
@@ -27,9 +28,13 @@ const FormField: React.FC<FormFieldProps> = ({
           name={id}
           value={value}
           onChange={onChange}
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bnv-primary transition-all ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 transition-all ${
             error ? 'border-red-500' : 'border-gray-300'
           }`}
+          style={{ 
+            focusRingColor: '#820000',
+            color: '#8F8967'
+          }}
           rows={4}
         />
       ) : type === 'select' ? (
@@ -38,9 +43,13 @@ const FormField: React.FC<FormFieldProps> = ({
           name={id}
           value={value}
           onChange={onChange}
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bnv-primary transition-all ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 transition-all ${
             error ? 'border-red-500' : 'border-gray-300'
           }`}
+          style={{ 
+            focusRingColor: '#820000',
+            color: '#8F8967'
+          }}
         >
           <option value="">-- Seleccionar --</option>
           {options.map((option) => (
@@ -57,14 +66,18 @@ const FormField: React.FC<FormFieldProps> = ({
           value={value}
           onChange={onChange}
           maxLength={maxLength}
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bnv-primary transition-all ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 transition-all ${
             error ? 'border-red-500' : 'border-gray-300'
           }`}
+          style={{ 
+            focusRingColor: '#820000',
+            color: '#8F8967'
+          }}
         />
       )}
       
       {maxLength && type === 'text' && (
-        <div className="mt-1 text-xs text-gray-500 text-right">
+        <div className="mt-1 text-xs text-right" style={{ color: '#8F8967' }}>
           {value.length}/{maxLength} caracteres
         </div>
       )}
