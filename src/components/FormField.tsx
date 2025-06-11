@@ -9,7 +9,8 @@ const FormField: React.FC<FormFieldProps> = ({
   onChange,
   error,
   required = false,
-  options = []
+  options = [],
+  maxLength
 }) => {
   return (
     <div className="mb-4">
@@ -26,7 +27,7 @@ const FormField: React.FC<FormFieldProps> = ({
           name={id}
           value={value}
           onChange={onChange}
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bnv-primary transition-all ${
             error ? 'border-red-500' : 'border-gray-300'
           }`}
           rows={4}
@@ -37,7 +38,7 @@ const FormField: React.FC<FormFieldProps> = ({
           name={id}
           value={value}
           onChange={onChange}
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bnv-primary transition-all ${
             error ? 'border-red-500' : 'border-gray-300'
           }`}
         >
@@ -55,10 +56,17 @@ const FormField: React.FC<FormFieldProps> = ({
           type={type}
           value={value}
           onChange={onChange}
-          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+          maxLength={maxLength}
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bnv-primary transition-all ${
             error ? 'border-red-500' : 'border-gray-300'
           }`}
         />
+      )}
+      
+      {maxLength && type === 'text' && (
+        <div className="mt-1 text-xs text-gray-500 text-right">
+          {value.length}/{maxLength} caracteres
+        </div>
       )}
       
       {error && <p className="mt-1 text-sm text-red-500">{error}</p>}

@@ -25,4 +25,5 @@ export interface FormFieldProps {
   error?: string;
   required?: boolean;
   options?: { value: string; label: string }[];
+  maxLength?: number;
 }

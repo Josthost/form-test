@@ -26,8 +26,10 @@ export const validateForm = (data: FormData): FormErrors => {
   }
 
   // Validate support type
-  if (!data.supportType) {
+  if (!data.supportType.trim()) {
     errors.supportType = 'El tipo de soporte es requerido';
+  } else if (data.supportType.trim().length > 50) {
+    errors.supportType = 'El tipo de soporte no puede exceder 50 caracteres';
   }
 
   // Validate description

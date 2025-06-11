@@ -7,20 +7,9 @@ import { validateForm } from '../utils/validation';
 import { sendEmail } from '../utils/emailService';
 
 const SUPPORT_AREAS = [
-  { value: 'hardware', label: 'Hardware' },
-  { value: 'software', label: 'Software' },
-  { value: 'networking', label: 'Redes' },
-  { value: 'security', label: 'Seguridad' },
-  { value: 'other', label: 'Otro' },
-];
-
-const SUPPORT_TYPES = [
-  { value: 'installation', label: 'Instalación' },
-  { value: 'repair', label: 'Reparación' },
-  { value: 'update', label: 'Actualización' },
-  { value: 'configuration', label: 'Configuración' },
-  { value: 'consultation', label: 'Consulta' },
-  { value: 'other', label: 'Otro' },
+  { value: 'soporte-tecnico', label: 'Soporte Técnico' },
+  { value: 'redes-internet', label: 'Redes e Internet' },
+  { value: 'sistemas-web', label: 'Sistemas Web' },
 ];
 
 const SupportForm: React.FC = () => {
@@ -159,12 +148,12 @@ const SupportForm: React.FC = () => {
           <FormField
             id="supportType"
             label="Tipo de soporte"
-            type="select"
+            type="text"
             value={formData.supportType}
             onChange={handleChange}
             error={errors.supportType}
             required
-            options={SUPPORT_TYPES}
+            maxLength={50}
           />
         </div>
         
@@ -182,7 +171,7 @@ const SupportForm: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full bg-bnv-primary text-white py-2 px-4 rounded-md hover:bg-bnv-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-bnv-primary focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
           >
             {isSubmitting ? (
               <>
