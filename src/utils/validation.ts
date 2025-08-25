@@ -39,12 +39,5 @@ export const validateForm = (data: FormData): FormErrors => {
     errors.service = 'El servicio es requerido';
   }
 
-  // Validate description
-  if (!data.description.trim()) {
-    errors.description = 'La descripción es requerida';
-  } else if (data.description.trim().length < 10) {
-    errors.description = 'La descripción debe tener al menos 10 caracteres';
-  }
-
   return errors;
 };

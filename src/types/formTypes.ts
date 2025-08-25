@@ -5,7 +5,6 @@ export interface FormData {
   lastName: string;
   idNumber: string;
   service: string;
-  description: string;
 }
 
 export interface FormErrors {
@@ -15,7 +14,6 @@ export interface FormErrors {
   lastName?: string;
   idNumber?: string;
   service?: string;
-  description?: string;
 }
 
 export interface FormFieldProps {

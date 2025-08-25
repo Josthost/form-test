@@ -7,7 +7,6 @@ interface EmailParams {
   lastName: string;
   idNumber: string;
   service: string;
-  description: string;
   fecha_actual?: string;
 }
 

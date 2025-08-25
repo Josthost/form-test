@@ -6,6 +6,50 @@ import { FormData, FormErrors } from '../types/formTypes';
 import { validateForm } from '../utils/validation';
 import { sendEmail } from '../utils/emailService';
 
+const DEPARTMENTS = [
+  { value: 'recursos-humanos', label: 'Recursos Humanos' },
+  { value: 'contabilidad', label: 'Contabilidad' },
+  { value: 'operaciones', label: 'Operaciones' },
+  { value: 'creditos', label: 'Créditos' },
+  { value: 'captaciones', label: 'Captaciones' },
+  { value: 'tesoreria', label: 'Tesorería' },
+  { value: 'auditoria', label: 'Auditoría' },
+  { value: 'legal', label: 'Legal' },
+  { value: 'marketing', label: 'Marketing' },
+  { value: 'sistemas', label: 'Sistemas' },
+  { value: 'seguridad', label: 'Seguridad' },
+  { value: 'gerencia', label: 'Gerencia' },
+];
+
+const DIVISIONS = [
+  { value: 'nomina', label: 'Nómina' },
+  { value: 'seleccion', label: 'Selección de Personal' },
+  { value: 'capacitacion', label: 'Capacitación' },
+  { value: 'cuentas-por-pagar', label: 'Cuentas por Pagar' },
+  { value: 'cuentas-por-cobrar', label: 'Cuentas por Cobrar' },
+  { value: 'estados-financieros', label: 'Estados Financieros' },
+  { value: 'atencion-cliente', label: 'Atención al Cliente' },
+  { value: 'caja', label: 'Caja' },
+  { value: 'credito-comercial', label: 'Crédito Comercial' },
+  { value: 'credito-personal', label: 'Crédito Personal' },
+  { value: 'hipotecario', label: 'Hipotecario' },
+  { value: 'ahorros', label: 'Ahorros' },
+  { value: 'cuentas-corrientes', label: 'Cuentas Corrientes' },
+  { value: 'certificados', label: 'Certificados de Depósito' },
+  { value: 'mesa-dinero', label: 'Mesa de Dinero' },
+  { value: 'cambio', label: 'Cambio' },
+  { value: 'auditoria-interna', label: 'Auditoría Interna' },
+  { value: 'cumplimiento', label: 'Cumplimiento' },
+  { value: 'contratos', label: 'Contratos' },
+  { value: 'litigios', label: 'Litigios' },
+  { value: 'publicidad', label: 'Publicidad' },
+  { value: 'comunicaciones', label: 'Comunicaciones' },
+  { value: 'desarrollo', label: 'Desarrollo de Sistemas' },
+  { value: 'soporte-tecnico', label: 'Soporte Técnico' },
+  { value: 'seguridad-fisica', label: 'Seguridad Física' },
+  { value: 'seguridad-informatica', label: 'Seguridad Informática' },
+];
+
 const SERVICES = [
   { value: 'soporte-tecnico', label: 'Soporte Técnico General' },
   { value: 'instalacion-software', label: 'Instalación de Software' },
@@ -27,7 +71,6 @@ const SupportForm: React.FC = () => {
     lastName: '',
     idNumber: '',
     service: '',
-    description: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -82,7 +125,6 @@ const SupportForm: React.FC = () => {
           lastName: '',
           idNumber: '',
           service: '',
-          description: '',
         });
       } else {
         throw new Error('Error al enviar el correo');
@@ -117,23 +159,23 @@ const SupportForm: React.FC = () => {
           <FormField
             id="department"
             label="Departamento solicitante"
-            type="text"
+            type="select"
             value={formData.department}
             onChange={handleChange}
             error={errors.department}
             required
-            placeholder="Ej: Recursos Humanos"
+            options={DEPARTMENTS}
           />
           
           <FormField
             id="division"
             label="División del solicitante"
-            type="text"
+            type="select"
             value={formData.division}
             onChange={handleChange}
             error={errors.division}
             required
-            placeholder="Ej: Nómina"
+            options={DIVISIONS}
           />
         </div>
         
@@ -184,17 +226,6 @@ const SupportForm: React.FC = () => {
             options={SERVICES}
           />
         </div>
-        
-        <FormField
-          id="description"
-          label="Descripción detallada del problema o solicitud"
-          type="textarea"
-          value={formData.description}
-          onChange={handleChange}
-          error={errors.description}
-          required
-          placeholder="Describa detalladamente el problema o servicio que necesita..."
-        />
         
         <div className="mt-6">
           <button
