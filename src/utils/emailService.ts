@@ -6,7 +6,12 @@ interface EmailParams {
   firstName: string;
   lastName: string;
   idNumber: string;
+  email: string;
+  position: string;
+  birthDate: string;
   service: string;
+  module: string;
+  description: string;
   fecha_actual?: string;
 }
 

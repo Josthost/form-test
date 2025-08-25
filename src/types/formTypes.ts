@@ -4,7 +4,12 @@ export interface FormData {
   firstName: string;
   lastName: string;
   idNumber: string;
+  email: string;
+  position: string;
+  birthDate: string;
   service: string;
+  module: string;
+  description: string;
 }
 
 export interface FormErrors {
@@ -13,7 +18,12 @@ export interface FormErrors {
   firstName?: string;
   lastName?: string;
   idNumber?: string;
+  email?: string;
+  position?: string;
+  birthDate?: string;
   service?: string;
+  module?: string;
+  description?: string;
 }
 
 export interface FormFieldProps {

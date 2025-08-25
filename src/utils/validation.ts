@@ -34,9 +34,47 @@ export const validateForm = (data: FormData): FormErrors => {
     errors.idNumber = 'Formato de cédula inválido (Ej: V-12345678 o E-12345678)';
   }
 
+  // Validate email
+  if (!data.email.trim()) {
+    errors.email = 'El correo electrónico es requerido';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) {
+    errors.email = 'Formato de correo electrónico inválido';
+  }
+
+  // Validate position
+  if (!data.position.trim()) {
+    errors.position = 'El cargo es requerido';
+  } else if (data.position.trim().length < 2) {
+    errors.position = 'El cargo debe tener al menos 2 caracteres';
+  }
+
+  // Validate birth date
+  if (!data.birthDate.trim()) {
+    errors.birthDate = 'La fecha de nacimiento es requerida';
+  } else {
+    const birthDate = new Date(data.birthDate);
+    const today = new Date();
+    const age = today.getFullYear() - birthDate.getFullYear();
+    if (age < 18 || age > 100) {
+      errors.birthDate = 'La edad debe estar entre 18 y 100 años';
+    }
+  }
+
   // Validate service
   if (!data.service) {
     errors.service = 'El servicio es requerido';
+  }
+
+  // Validate module
+  if (!data.module) {
+    errors.module = 'El módulo es requerido';
+  }
+
+  // Validate description
+  if (!data.description.trim()) {
+    errors.description = 'La descripción es requerida';
+  } else if (data.description.trim().length < 10) {
+    errors.description = 'La descripción debe tener al menos 10 caracteres';
   }
 
   return errors;
