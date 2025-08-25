@@ -10,8 +10,8 @@ const FormField: React.FC<FormFieldProps> = ({
   error,
   required = false,
   options = [],
-  maxLength
-  placeholder?: string;
+  maxLength,
+  placeholder
 }) => {
   return (
     <div className="mb-4">
