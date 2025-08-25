@@ -3,9 +3,10 @@ import emailjs from '@emailjs/browser';
 interface EmailParams {
   department: string;
   division: string;
-  email: string;
-  supportArea: string;
-  supportType: string;
+  firstName: string;
+  lastName: string;
+  idNumber: string;
+  service: string;
   description: string;
   fecha_actual?: string;
 }

@@ -6,19 +6,27 @@ import { FormData, FormErrors } from '../types/formTypes';
 import { validateForm } from '../utils/validation';
 import { sendEmail } from '../utils/emailService';
 
-const SUPPORT_AREAS = [
-  { value: 'soporte-tecnico', label: 'Soporte Técnico' },
-  { value: 'redes-internet', label: 'Redes e Internet' },
-  { value: 'sistemas-web', label: 'Sistemas Web' },
+const SERVICES = [
+  { value: 'soporte-tecnico', label: 'Soporte Técnico General' },
+  { value: 'instalacion-software', label: 'Instalación de Software' },
+  { value: 'configuracion-equipos', label: 'Configuración de Equipos' },
+  { value: 'problemas-red', label: 'Problemas de Red' },
+  { value: 'acceso-sistemas', label: 'Acceso a Sistemas' },
+  { value: 'backup-datos', label: 'Respaldo de Datos' },
+  { value: 'mantenimiento-preventivo', label: 'Mantenimiento Preventivo' },
+  { value: 'actualizacion-sistema', label: 'Actualización de Sistema' },
+  { value: 'seguridad-informatica', label: 'Seguridad Informática' },
+  { value: 'capacitacion-usuario', label: 'Capacitación de Usuario' },
 ];
 
 const SupportForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     department: '',
     division: '',
-    email: '',
-    supportArea: '',
-    supportType: '',
+    firstName: '',
+    lastName: '',
+    idNumber: '',
+    service: '',
     description: '',
   });
 
@@ -57,24 +65,28 @@ const SupportForm: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // In a real app, this would send the data to your backend or service
-      await sendEmail(formData);
+      const result = await sendEmail(formData);
       
-      // Show success notification
-      setNotification({
-        type: 'success',
-        message: 'Solicitud enviada con éxito. Le contactaremos pronto.',
-      });
-      
-      // Reset form
-      setFormData({
-        department: '',
-        division: '',
-        email: '',
-        supportArea: '',
-        supportType: '',
-        description: '',
-      });
+      if (result.success) {
+        // Show success notification with ticket code
+        setNotification({
+          type: 'success',
+          message: `Solicitud enviada con éxito. Código de ticket: ${result.code}. Le contactaremos pronto.`,
+        });
+        
+        // Reset form
+        setFormData({
+          department: '',
+          division: '',
+          firstName: '',
+          lastName: '',
+          idNumber: '',
+          service: '',
+          description: '',
+        });
+      } else {
+        throw new Error('Error al enviar el correo');
+      }
     } catch (error) {
       // Show error notification
       setNotification({
@@ -110,6 +122,7 @@ const SupportForm: React.FC = () => {
             onChange={handleChange}
             error={errors.department}
             required
+            placeholder="Ej: Recursos Humanos"
           />
           
           <FormField
@@ -120,51 +133,67 @@ const SupportForm: React.FC = () => {
             onChange={handleChange}
             error={errors.division}
             required
+            placeholder="Ej: Nómina"
           />
         </div>
         
-        <FormField
-          id="email"
-          label="Correo electrónico"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          error={errors.email}
-          required
-        />
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
-            id="supportArea"
-            label="Área de soporte"
-            type="select"
-            value={formData.supportArea}
+            id="firstName"
+            label="Nombre completo"
+            type="text"
+            value={formData.firstName}
             onChange={handleChange}
-            error={errors.supportArea}
+            error={errors.firstName}
             required
-            options={SUPPORT_AREAS}
+            placeholder="Ej: Juan Carlos"
           />
           
           <FormField
-            id="supportType"
-            label="Tipo de soporte"
+            id="lastName"
+            label="Apellidos"
             type="text"
-            value={formData.supportType}
+            value={formData.lastName}
             onChange={handleChange}
-            error={errors.supportType}
+            error={errors.lastName}
             required
-            maxLength={50}
+            placeholder="Ej: Pérez González"
+          />
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <FormField
+            id="idNumber"
+            label="Cédula de identidad"
+            type="text"
+            value={formData.idNumber}
+            onChange={handleChange}
+            error={errors.idNumber}
+            required
+            placeholder="Ej: V-12345678"
+          />
+          
+          <FormField
+            id="service"
+            label="Servicio requerido"
+            type="select"
+            value={formData.service}
+            onChange={handleChange}
+            error={errors.service}
+            required
+            options={SERVICES}
           />
         </div>
         
         <FormField
           id="description"
-          label="Descripción detallada"
+          label="Descripción detallada del problema o solicitud"
           type="textarea"
           value={formData.description}
           onChange={handleChange}
           error={errors.description}
           required
+          placeholder="Describa detalladamente el problema o servicio que necesita..."
         />
         
         <div className="mt-6">

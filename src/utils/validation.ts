@@ -13,23 +13,30 @@ export const validateForm = (data: FormData): FormErrors => {
     errors.division = 'La división es requerida';
   }
 
-  // Validate email
-  if (!data.email.trim()) {
-    errors.email = 'El correo electrónico es requerido';
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    errors.email = 'Ingrese un correo electrónico válido';
+  // Validate first name
+  if (!data.firstName.trim()) {
+    errors.firstName = 'El nombre es requerido';
+  } else if (data.firstName.trim().length < 2) {
+    errors.firstName = 'El nombre debe tener al menos 2 caracteres';
   }
 
-  // Validate support area
-  if (!data.supportArea) {
-    errors.supportArea = 'El área de soporte es requerida';
+  // Validate last name
+  if (!data.lastName.trim()) {
+    errors.lastName = 'Los apellidos son requeridos';
+  } else if (data.lastName.trim().length < 2) {
+    errors.lastName = 'Los apellidos deben tener al menos 2 caracteres';
   }
 
-  // Validate support type
-  if (!data.supportType.trim()) {
-    errors.supportType = 'El tipo de soporte es requerido';
-  } else if (data.supportType.trim().length > 50) {
-    errors.supportType = 'El tipo de soporte no puede exceder 50 caracteres';
+  // Validate ID number
+  if (!data.idNumber.trim()) {
+    errors.idNumber = 'La cédula de identidad es requerida';
+  } else if (!/^[VE]-?\d{7,8}$/i.test(data.idNumber.trim())) {
+    errors.idNumber = 'Formato de cédula inválido (Ej: V-12345678 o E-12345678)';
+  }
+
+  // Validate service
+  if (!data.service) {
+    errors.service = 'El servicio es requerido';
   }
 
   // Validate description

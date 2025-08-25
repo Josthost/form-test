@@ -1,18 +1,20 @@
 export interface FormData {
   department: string;
   division: string;
-  email: string;
-  supportArea: string;
-  supportType: string;
+  firstName: string;
+  lastName: string;
+  idNumber: string;
+  service: string;
   description: string;
 }
 
 export interface FormErrors {
   department?: string;
   division?: string;
-  email?: string;
-  supportArea?: string;
-  supportType?: string;
+  firstName?: string;
+  lastName?: string;
+  idNumber?: string;
+  service?: string;
   description?: string;
 }
 
@@ -26,4 +28,5 @@ export interface FormFieldProps {
   required?: boolean;
   options?: { value: string; label: string }[];
   maxLength?: number;
+  placeholder?: string;
 }

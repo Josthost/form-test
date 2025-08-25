@@ -11,6 +11,7 @@ const FormField: React.FC<FormFieldProps> = ({
   required = false,
   options = [],
   maxLength
+  placeholder?: string;
 }) => {
   return (
     <div className="mb-4">
@@ -66,6 +67,7 @@ const FormField: React.FC<FormFieldProps> = ({
           value={value}
           onChange={onChange}
           maxLength={maxLength}
+          placeholder={placeholder}
           className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 transition-all ${
             error ? 'border-red-500' : 'border-gray-300'
           }`}
