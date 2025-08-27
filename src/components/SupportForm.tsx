@@ -7,19 +7,19 @@ import { validateForm } from '../utils/validation';
 import { sendEmail } from '../utils/emailService';
 
 const DEPARTMENTS = [
-  { value: 'direccion-general', label: 'Dirección General' },
-  { value: 'consultoria-juridica', label: 'Consultoría Jurídica' },
-  { value: 'auditoria-juridica', label: 'Auditoría Jurídica' },
-  { value: 'planificacion-estrategica-y-control-de-gestion', label: 'Oficina de Planificacion Estrategica y Control de Gestión' },
-  { value: 'comunicacion-e-imagen', label: 'Oficina de Comunicación e Imagen Institucional' },
-  { value: 'oficina-de-administracion', label: 'Oficina de Administración' },
-  { value: 'oficina-de-recursos-humanos', label: 'Oficina de Recursos Humanos' },
-  { value: 'oficina-de-tecnologia-de-la-informacion', label: 'Oficina de Técnologia de la Información' },
-  { value: 'oficina-de-mantenimiento-de-servicios-generales', label: 'Oficina de Mantenimiento de Servicios Generales' },
-  { value: 'seguridad-integral', label: 'Seguridad Integral' },
-  { value: 'extension-cultural', label: 'Extensión Cultural' },
-  { value: 'direccion-de-programa-de-servicios-de-la-biblioteca-nacional', label: 'Dirección de Programa de Servicios de la Biblioteca Nacional' },
-  { value: 'direccion-de-programa-de-servicios-bibliotecas-publicas', label: 'Dirección de Programa de Servicios Bibliotecas Públicas' },
+  { value: 'Administración', label: 'Administración' },
+  { value: 'Recursos Humanos', label: 'Recursos Humanos' },
+  { value: 'Contabilidad', label: 'Contabilidad' },
+  { value: 'Operaciones', label: 'Operaciones' },
+  { value: 'Créditos', label: 'Créditos' },
+  { value: 'Captaciones', label: 'Captaciones' },
+  { value: 'Tesorería', label: 'Tesorería' },
+  { value: 'Auditoría', label: 'Auditoría' },
+  { value: 'Legal', label: 'Legal' },
+  { value: 'Marketing', label: 'Marketing' },
+  { value: 'Sistemas', label: 'Sistemas' },
+  { value: 'Seguridad', label: 'Seguridad' },
+  { value: 'Gerencia', label: 'Gerencia' },
   { value: 'direccion-de-programa-de-servicios-tecnicos-bibliotecarios', label: 'Dirección de programa de Servicios Técnicos Bibliotecarios' },
   { value: 'direccion-de-orientacion-y-referencia', label: 'Dirección de Orientación y Referencia' },
   { value: 'direccion-coleccion-bibliografica', label: 'Dirección Colección Bibliográfica' },
@@ -32,10 +32,10 @@ const DEPARTMENTS = [
 ];
 
 const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]> = {
-  'direccion-general': [
-    { value: 'archivo-general', label: 'Archivo General' },
-    { value: 'apoyo-administrativo', label: 'Apoyo Administrativo' },
-    { value: 'servicios-generales', label: 'Servicios Generales' },
+  'Administración': [
+    { value: 'Nómina', label: 'Nómina' },
+    { value: 'Compras', label: 'Compras' },
+    { value: 'Servicios Generales', label: 'Servicios Generales' },
   ],
   'consultoria-juridica': [
     { value: 'consulturia-juridica', label: 'Consultoría Jurídica' },
@@ -61,10 +61,10 @@ const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]
     { value: 'finanzas', label: 'Finanzas' },
     { value: 'contabilidad', label: 'Contabilidad' },
   ],
-  'oficina-de-recursos-humanos': [
-    { value: 'Desarrollo-y-gestion-humana', label: 'Desarrollo y Gestión Humana' },
-    { value: 'nomina-y-gestion-administrativa', label: 'Nomina y Gestión Administrativa' },
-    { value: 'bienestar-social', label: 'Bienestar Social' },
+  'Recursos Humanos': [
+    { value: 'Selección de Personal', label: 'Selección de Personal' },
+    { value: 'Capacitación', label: 'Capacitación' },
+    { value: 'Bienestar Social', label: 'Bienestar Social' },
   ],
   'oficina-de-tecnologia-de-la-informacion': [
     { value: 'sistemas', label: 'Sistemas' },
@@ -74,105 +74,105 @@ const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]
     { value: 'servicios-internos', label: 'Servicios Internos' },
     { value: 'servicios-contratados', label: 'Servicios Contratados' },
     { value: 'equipos-y-sistemas', label: 'Equipos y Sistemas' },
-    { value: 'infractructura', label: 'Infrastructura' },
-  ],
-  'seguridad-integral': [
-    { value: 'seguridad-fisica', label: 'Seguridad Fisica' },
+  'Contabilidad': [
+    { value: 'Cuentas por Pagar', label: 'Cuentas por Pagar' },
+    { value: 'Cuentas por Cobrar', label: 'Cuentas por Cobrar' },
+    { value: 'Estados Financieros', label: 'Estados Financieros' },
     { value: 'tecnologia-de-seguridad', label: 'Técnologia de Seguridad' },
-    { value: 'higiene-y-control-de-riesgo', label: 'Higiene y Control de Riesgo' },
-  ],
-  'extension-cultural': [
-    { value: 'produccion-y-montaje', label: 'Producción y Montaje' },
+  'Operaciones': [
+    { value: 'Atención al Cliente', label: 'Atención al Cliente' },
+    { value: 'Caja', label: 'Caja' },
+    { value: 'Mesa de Dinero', label: 'Mesa de Dinero' },
     { value: 'programacion-y-promocion', label: 'Programación y Promoción' },
-  ],
-  'direccion-de-programa-de-servicios-de-la-biblioteca-nacional': [
-    { value: 'sin-division', label: 'Sin División' },
-  ],
-  'direccion-de-programa-de-servicios-bibliotecas-publicas': [
+  'Créditos': [
+    { value: 'Crédito Comercial', label: 'Crédito Comercial' },
+    { value: 'Crédito Personal', label: 'Crédito Personal' },
+    { value: 'Crédito Hipotecario', label: 'Crédito Hipotecario' },
+    { value: 'Crédito Vehicular', label: 'Crédito Vehicular' },
     { value: 'desarrollo-de-servicios-especiales-de-informacion', label: 'Desarrollo de Servicios Especiales de Información' },
-  ],
-  'direccion-de-programa-de-servicios-tecnicos-bibliotecarios': [
-    { value: 'normalizacion-tecnica', label: 'Normalización Técnica' },
-  ],
+  'Captaciones': [
+    { value: 'Cuentas Corrientes', label: 'Cuentas Corrientes' },
+    { value: 'Cuentas de Ahorro', label: 'Cuentas de Ahorro' },
+    { value: 'Depósitos a Plazo', label: 'Depósitos a Plazo' },
   'direccion-de-orientacion-y-referencia': [
-    { value: 'documentacion-e-informacion-bibliotecologica', label: 'Documentación e Información Bibliotecológica' },
-  ],
-  'direccion-coleccion-bibliografica': [
-    { value: 'coleccion-documental-antigua', label: 'Colección Documental Antigua' },
+  'Tesorería': [
+    { value: 'Flujo de Caja', label: 'Flujo de Caja' },
+    { value: 'Inversiones', label: 'Inversiones' },
+    { value: 'Cambio de Divisas', label: 'Cambio de Divisas' },
     { value: 'coleccion-tulio-febres-cordero', label: 'Colección Tulio Febres Cordero (Mérida)' },
-    { value: 'coleccion-bibliografica-contemporanea', label: 'Colección Bibliográfica Contemporanea' },
-  ],
-  'direccion-coleccion-audiovisual': [
-    { value: 'coleccion-sonido-y-cine', label: 'Colección Sonido y Cine' },
+  'Auditoría': [
+    { value: 'Auditoría Interna', label: 'Auditoría Interna' },
+    { value: 'Control de Riesgos', label: 'Control de Riesgos' },
+    { value: 'Cumplimiento', label: 'Cumplimiento' },
     { value: 'coleccion-obras-planas', label: 'Colección Obras Planas' },
-  ],
-  'direccion-de-la-red-metropolitana-de-bibliotecas-publicas': [
-    { value: 'bpc-simon-rodriguez', label: 'BPC Simón Rodríguez' },
-  ],
+  'Legal': [
+    { value: 'Asesoría Jurídica', label: 'Asesoría Jurídica' },
+    { value: 'Contratos', label: 'Contratos' },
+    { value: 'Litigios', label: 'Litigios' },
   'direccion-de-redes-estatales-de-bibliotecas-publicas': [
-    { value: 'sin-division', label: 'Sin división' },
-  ],
-  'direccion-de-desarrollo-de-colecciones': [
-    { value: 'recepcion-y-distribucion', label: 'Recepción y Distribución' },
+  'Marketing': [
+    { value: 'Publicidad', label: 'Publicidad' },
+    { value: 'Promociones', label: 'Promociones' },
+    { value: 'Relaciones Públicas', label: 'Relaciones Públicas' },
     { value: 'adquisiciones', label: 'Adquisiciones' },
-    { value: 'deposito-legal', label: 'Depósito Legal' },
-    { value: 'control-y-evaluacion', label: 'Control y Evaluación' },
+  'Sistemas': [
+  'Correo Institucional': [
+    { value: 'Creación de Nuevo Correo', label: 'Creación de Nuevo Correo' },
+    { value: 'Recuperación de Contraseña', label: 'Recuperación de Contraseña' },
+    { value: 'Configuración Outlook', label: 'Configuración Outlook' },
+    { value: 'Problemas de Envío', label: 'Problemas de Envío' },
+    { value: 'Seguridad Física', label: 'Seguridad Física' },
+  'Sistema Bancario': [
+    { value: 'Core Bancario', label: 'Core Bancario' },
+    { value: 'Cajeros Automáticos', label: 'Cajeros Automáticos' },
+    { value: 'POS', label: 'POS' },
+    { value: 'Banca Online', label: 'Banca Online' },
+    { value: 'Banca Móvil', label: 'Banca Móvil' },
+    { value: 'Relaciones Institucionales', label: 'Relaciones Institucionales' },
+  'Soporte Técnico General': [
+    { value: 'Hardware', label: 'Hardware' },
+    { value: 'Software', label: 'Software' },
+    { value: 'Impresoras', label: 'Impresoras' },
+    { value: 'Periféricos', label: 'Periféricos' },
+  { value: 'Sistema Bancario', label: 'Sistema Bancario' },
+  'Instalación de Software': [
+    { value: 'Microsoft Office', label: 'Microsoft Office' },
+    { value: 'Antivirus', label: 'Antivirus' },
+    { value: 'Aplicaciones Bancarias', label: 'Aplicaciones Bancarias' },
+    { value: 'Navegadores', label: 'Navegadores' },
+  { value: 'Respaldo de Datos', label: 'Respaldo de Datos' },
+  'Configuración de Equipos': [
+    { value: 'Computadoras', label: 'Computadoras' },
+    { value: 'Laptops', label: 'Laptops' },
+    { value: 'Tablets', label: 'Tablets' },
+    { value: 'Teléfonos', label: 'Teléfonos' },
   ],
-  'direccion-de-procesos-tecnicos': [
-    { value: 'registro', label: 'Registro' },
-    { value: 'control-de-calidad', label: 'COntrol de Calidad' },
-    { value: 'catalogacion-y-clasificacion-de-materiales-bibliograficos-y-seriado', label: 'Catalogación y Clasificación de Materiales Bibliográficos y Seriado' },
-    { value: 'catalogacion-y-clasificacion-de-materiales-audiovisuales', label: 'Catalogación y Clasificación de Materiales Audiovisuales' },
-  ],
-  'direccion-del-centro-nacional-de-preservacion-documental': [
-    { value: 'preservacion-de-colecciones', label: 'Preservación de Colecciones' },
-    { value: 'conservacion-de-colecciones', label: 'Conservación de Colecciones' },
-    { value: 'micrografia', label: 'Micrografía' },
-    { value: 'preservacion-por-duplicados', label: 'Preservación por Duplicados' },
-  ],
-};
-
-const SERVICES = [
-  { value: 'correo-institucional', label: 'Correo Institucional' },
-  { value: 'sigesp', label: 'SIGESP' },
-  { value: 'wordpress', label: 'Wordpress' },
-  { value: 'intranet', label: 'Intranet' },
-  { value: 'psi', label: 'PSI' },
-];
-
-const MODULES_BY_SERVICE: Record<string, { value: string; label: string }[]> = {
-  'correo-institucional': [
-    { value: 'creacion-nuevo-correo', label: 'Creación de Nuevo Correo' },
-    // { value: 'recuperacion-password', label: 'Recuperación de Contraseña' },
-    // { value: 'configuracion-outlook', label: 'Configuración Outlook' },
-    // { value: 'problemas-envio', label: 'Problemas de Envío' },
-  ],
-  'sigesp': [
-    { value: 'nomina', label: 'Nómina' },
-    { value: 'recursos-humanos', label: 'Recursos Humanos' },
-    { value: 'gestion-humana', label: 'Gestión Humana' },
-    { value: 'administración', label: 'Administración' },
+  'Problemas de Red': [
+    { value: 'Conectividad', label: 'Conectividad' },
+    { value: 'WiFi', label: 'WiFi' },
+    { value: 'Ethernet', label: 'Ethernet' },
+    { value: 'VPN', label: 'VPN' },
     { value: 'compras', label: 'Compras' },
-    { value: 'contabilidad', label: 'Contabilidad' },
-    { value: 'bienes-nacionales', label: 'Bienes Nacionales' },
-    { value: 'finanza', label: 'Finanza' },
-    { value: 'Presupuesto', label: 'Presupuesto' },
-  ],
+  'Acceso a Sistemas': [
+    { value: 'Permisos de Usuario', label: 'Permisos de Usuario' },
+    { value: 'Reseteo de Contraseña', label: 'Reseteo de Contraseña' },
+    { value: 'Activación de Cuenta', label: 'Activación de Cuenta' },
+    { value: 'Desbloqueo de Cuenta', label: 'Desbloqueo de Cuenta' },
   'wordpress': [
-    { value: 'biblioteca-digital', label: 'Biblioteca Digital' },
-    { value: 'audiovisual', label: 'Audiovisual' },
-    { value: 'mama-rosa', label: 'Mama Rosa' },
-    { value: 'pagina-web', label: 'Pagina Web' },
+  'Respaldo de Datos': [
+    { value: 'Backup de Archivos', label: 'Backup de Archivos' },
+    { value: 'Restauración de Datos', label: 'Restauración de Datos' },
+    { value: 'Migración de Datos', label: 'Migración de Datos' },
     { value: 'intranet', label: 'Intranet' },
-    { value: 'pnf', label: 'PNF' },
-    { value: 'atencion-ciudadana', label: 'Atención Ciudadana' },
-
-  ],
+  'Mantenimiento Preventivo': [
+    { value: 'Limpieza de Equipos', label: 'Limpieza de Equipos' },
+    { value: 'Actualización de Sistema', label: 'Actualización de Sistema' },
+    { value: 'Revisión de Hardware', label: 'Revisión de Hardware' },
   'intranet': [
-    { value: 'usuario', label: 'Usuario' },
-  ],
-  'psi': [
-    { value: '', label: '' },
+  'Seguridad Informática': [
+    { value: 'Análisis de Malware', label: 'Análisis de Malware' },
+    { value: 'Configuración de Firewall', label: 'Configuración de Firewall' },
+    { value: 'Políticas de Seguridad', label: 'Políticas de Seguridad' },
   ],
 };
 
