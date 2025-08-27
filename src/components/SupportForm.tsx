@@ -74,54 +74,96 @@ const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]
     { value: 'servicios-internos', label: 'Servicios Internos' },
     { value: 'servicios-contratados', label: 'Servicios Contratados' },
     { value: 'equipos-y-sistemas', label: 'Equipos y Sistemas' },
+  ],
   'Contabilidad': [
     { value: 'Cuentas por Pagar', label: 'Cuentas por Pagar' },
     { value: 'Cuentas por Cobrar', label: 'Cuentas por Cobrar' },
     { value: 'Estados Financieros', label: 'Estados Financieros' },
     { value: 'tecnologia-de-seguridad', label: 'Técnologia de Seguridad' },
+  ],
   'Operaciones': [
     { value: 'Atención al Cliente', label: 'Atención al Cliente' },
     { value: 'Caja', label: 'Caja' },
     { value: 'Mesa de Dinero', label: 'Mesa de Dinero' },
     { value: 'programacion-y-promocion', label: 'Programación y Promoción' },
+  ],
   'Créditos': [
     { value: 'Crédito Comercial', label: 'Crédito Comercial' },
     { value: 'Crédito Personal', label: 'Crédito Personal' },
     { value: 'Crédito Hipotecario', label: 'Crédito Hipotecario' },
     { value: 'Crédito Vehicular', label: 'Crédito Vehicular' },
     { value: 'desarrollo-de-servicios-especiales-de-informacion', label: 'Desarrollo de Servicios Especiales de Información' },
+  ],
   'Captaciones': [
     { value: 'Cuentas Corrientes', label: 'Cuentas Corrientes' },
     { value: 'Cuentas de Ahorro', label: 'Cuentas de Ahorro' },
     { value: 'Depósitos a Plazo', label: 'Depósitos a Plazo' },
+  ],
   'direccion-de-orientacion-y-referencia': [
+  ],
   'Tesorería': [
     { value: 'Flujo de Caja', label: 'Flujo de Caja' },
     { value: 'Inversiones', label: 'Inversiones' },
     { value: 'Cambio de Divisas', label: 'Cambio de Divisas' },
     { value: 'coleccion-tulio-febres-cordero', label: 'Colección Tulio Febres Cordero (Mérida)' },
+  ],
   'Auditoría': [
     { value: 'Auditoría Interna', label: 'Auditoría Interna' },
     { value: 'Control de Riesgos', label: 'Control de Riesgos' },
     { value: 'Cumplimiento', label: 'Cumplimiento' },
     { value: 'coleccion-obras-planas', label: 'Colección Obras Planas' },
+  ],
   'Legal': [
     { value: 'Asesoría Jurídica', label: 'Asesoría Jurídica' },
     { value: 'Contratos', label: 'Contratos' },
     { value: 'Litigios', label: 'Litigios' },
+  ],
   'direccion-de-redes-estatales-de-bibliotecas-publicas': [
+  ],
   'Marketing': [
     { value: 'Publicidad', label: 'Publicidad' },
     { value: 'Promociones', label: 'Promociones' },
     { value: 'Relaciones Públicas', label: 'Relaciones Públicas' },
     { value: 'adquisiciones', label: 'Adquisiciones' },
+  ],
   'Sistemas': [
+    { value: 'Correo Institucional', label: 'Correo Institucional' },
+    { value: 'Sistema Bancario', label: 'Sistema Bancario' },
+    { value: 'Soporte Técnico General', label: 'Soporte Técnico General' },
+    { value: 'Instalación de Software', label: 'Instalación de Software' },
+    { value: 'Respaldo de Datos', label: 'Respaldo de Datos' },
+    { value: 'Configuración de Equipos', label: 'Configuración de Equipos' },
+    { value: 'Problemas de Red', label: 'Problemas de Red' },
+    { value: 'Acceso a Sistemas', label: 'Acceso a Sistemas' },
+    { value: 'wordpress', label: 'WordPress' },
+    { value: 'Respaldo de Datos', label: 'Respaldo de Datos' },
+    { value: 'Mantenimiento Preventivo', label: 'Mantenimiento Preventivo' },
+    { value: 'intranet', label: 'Intranet' },
+    { value: 'Seguridad Informática', label: 'Seguridad Informática' },
+  ],
+};
+
+const SERVICES = [
+  { value: 'Correo Institucional', label: 'Correo Institucional' },
+  { value: 'Sistema Bancario', label: 'Sistema Bancario' },
+  { value: 'Soporte Técnico General', label: 'Soporte Técnico General' },
+  { value: 'Instalación de Software', label: 'Instalación de Software' },
+  { value: 'Configuración de Equipos', label: 'Configuración de Equipos' },
+  { value: 'Problemas de Red', label: 'Problemas de Red' },
+  { value: 'Acceso a Sistemas', label: 'Acceso a Sistemas' },
+  { value: 'Respaldo de Datos', label: 'Respaldo de Datos' },
+  { value: 'Mantenimiento Preventivo', label: 'Mantenimiento Preventivo' },
+  { value: 'Seguridad Informática', label: 'Seguridad Informática' },
+];
+
+const MODULES_BY_SERVICE: Record<string, { value: string; label: string }[]> = {
   'Correo Institucional': [
     { value: 'Creación de Nuevo Correo', label: 'Creación de Nuevo Correo' },
     { value: 'Recuperación de Contraseña', label: 'Recuperación de Contraseña' },
     { value: 'Configuración Outlook', label: 'Configuración Outlook' },
     { value: 'Problemas de Envío', label: 'Problemas de Envío' },
     { value: 'Seguridad Física', label: 'Seguridad Física' },
+  ],
   'Sistema Bancario': [
     { value: 'Core Bancario', label: 'Core Bancario' },
     { value: 'Cajeros Automáticos', label: 'Cajeros Automáticos' },
@@ -129,18 +171,19 @@ const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]
     { value: 'Banca Online', label: 'Banca Online' },
     { value: 'Banca Móvil', label: 'Banca Móvil' },
     { value: 'Relaciones Institucionales', label: 'Relaciones Institucionales' },
+  ],
   'Soporte Técnico General': [
     { value: 'Hardware', label: 'Hardware' },
     { value: 'Software', label: 'Software' },
     { value: 'Impresoras', label: 'Impresoras' },
     { value: 'Periféricos', label: 'Periféricos' },
-  { value: 'Sistema Bancario', label: 'Sistema Bancario' },
+  ],
   'Instalación de Software': [
     { value: 'Microsoft Office', label: 'Microsoft Office' },
     { value: 'Antivirus', label: 'Antivirus' },
     { value: 'Aplicaciones Bancarias', label: 'Aplicaciones Bancarias' },
     { value: 'Navegadores', label: 'Navegadores' },
-  { value: 'Respaldo de Datos', label: 'Respaldo de Datos' },
+  ],
   'Configuración de Equipos': [
     { value: 'Computadoras', label: 'Computadoras' },
     { value: 'Laptops', label: 'Laptops' },
@@ -153,22 +196,24 @@ const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]
     { value: 'Ethernet', label: 'Ethernet' },
     { value: 'VPN', label: 'VPN' },
     { value: 'compras', label: 'Compras' },
+  ],
   'Acceso a Sistemas': [
     { value: 'Permisos de Usuario', label: 'Permisos de Usuario' },
     { value: 'Reseteo de Contraseña', label: 'Reseteo de Contraseña' },
     { value: 'Activación de Cuenta', label: 'Activación de Cuenta' },
     { value: 'Desbloqueo de Cuenta', label: 'Desbloqueo de Cuenta' },
-  'wordpress': [
+  ],
   'Respaldo de Datos': [
     { value: 'Backup de Archivos', label: 'Backup de Archivos' },
     { value: 'Restauración de Datos', label: 'Restauración de Datos' },
     { value: 'Migración de Datos', label: 'Migración de Datos' },
     { value: 'intranet', label: 'Intranet' },
+  ],
   'Mantenimiento Preventivo': [
     { value: 'Limpieza de Equipos', label: 'Limpieza de Equipos' },
     { value: 'Actualización de Sistema', label: 'Actualización de Sistema' },
     { value: 'Revisión de Hardware', label: 'Revisión de Hardware' },
-  'intranet': [
+  ],
   'Seguridad Informática': [
     { value: 'Análisis de Malware', label: 'Análisis de Malware' },
     { value: 'Configuración de Firewall', label: 'Configuración de Firewall' },
