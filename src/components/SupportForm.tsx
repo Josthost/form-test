@@ -436,17 +436,17 @@ const SupportForm: React.FC = () => {
             disabled={isSubmitting}
             className="w-full text-white py-2 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
             style={{ 
-              backgroundColor: '#820000',
-              focusRingColor: '#820000'
+              backgroundColor: '#A70336',
+              focusRingColor: '#A70336'
             }}
             onMouseEnter={(e) => {
               if (!isSubmitting) {
-                e.currentTarget.style.backgroundColor = '#a00000';
+                e.currentTarget.style.backgroundColor = '#c91e4a';
               }
             }}
             onMouseLeave={(e) => {
               if (!isSubmitting) {
-                e.currentTarget.style.backgroundColor = '#820000';
+                e.currentTarget.style.backgroundColor = '#A70336';
               }
             }}
           >

@@ -18,7 +18,7 @@ const FormField: React.FC<FormFieldProps> = ({
       <label 
         htmlFor={id} 
         className="block text-sm font-medium mb-1"
-        style={{ color: '#820000' }}
+        style={{ color: '#A70336' }}
       >
         {label} {required && <span className="text-red-500">*</span>}
       </label>
@@ -33,8 +33,8 @@ const FormField: React.FC<FormFieldProps> = ({
             error ? 'border-red-500' : 'border-gray-300'
           }`}
           style={{ 
-            focusRingColor: '#820000',
-            color: '#8F8967'
+            focusRingColor: '#A70336',
+            color: '#273376'
           }}
           rows={4}
         />
@@ -48,8 +48,8 @@ const FormField: React.FC<FormFieldProps> = ({
             error ? 'border-red-500' : 'border-gray-300'
           }`}
           style={{ 
-            focusRingColor: '#820000',
-            color: '#8F8967'
+            focusRingColor: '#A70336',
+            color: '#273376'
           }}
         >
           <option value="">-- Seleccionar --</option>
@@ -72,14 +72,14 @@ const FormField: React.FC<FormFieldProps> = ({
             error ? 'border-red-500' : 'border-gray-300'
           }`}
           style={{ 
-            focusRingColor: '#820000',
-            color: '#8F8967'
+            focusRingColor: '#A70336',
+            color: '#273376'
           }}
         />
       )}
       
       {maxLength && type === 'text' && (
-        <div className="mt-1 text-xs text-right" style={{ color: '#8F8967' }}>
+        <div className="mt-1 text-xs text-right" style={{ color: '#273376' }}>
           {value.length}/{maxLength} caracteres
         </div>
       )}

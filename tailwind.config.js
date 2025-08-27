@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bnv-primary': '#820000',
-        'bnv-secondary': '#E0D7A2',
-        'bnv-tertiary': '#8F8967',
+        'bnv-primary': '#A70336',    // Rojo carmesí
+        'bnv-secondary': '#273376',  // Azul marino
+        'bnv-tertiary': '#FFCF07',   // Amarillo oro
       },
     },
   },
