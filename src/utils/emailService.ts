@@ -18,9 +18,9 @@ interface EmailParams {
 // Configuración de cuentas
 const ACCOUNTS = [
   {
-    SERVICE_ID: 'service_me8dq26',
-    TEMPLATE_ID: 'template_41txpt8',
-    PUBLIC_KEY: 'KxvsssG3ALdwfNJ2X'
+    SERVICE_ID: 'service_pfp8n9l',
+    TEMPLATE_ID: 'template_pb9k6he',
+    PUBLIC_KEY: 'k0CskVKrCyv2TIUpg'
   },
   {
     SERVICE_ID: 'service_pel282i',
