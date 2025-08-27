@@ -28,7 +28,7 @@ const DEPARTMENTS = [
   { value: 'direccion-de-redes-estatales-de-bibliotecas-publicas', label: 'Dirección de Redes Estatales de Bilbiotecas Públicas' },
   { value: 'direccion-de-desarrollo-de-colecciones', label: 'Dirección de Desarrollo de Colecciones' },
   { value: 'direccion-de-procesos-tecnicos', label: 'Dirección de Procesos Técnicos' },
-  { value: 'direccion-del-centro-nacional-de-preservacion-documental', label: 'Dirección del Centro NAcional de Preservación Documental' },
+  { value: 'direccion-del-centro-nacional-de-preservacion-documental', label: 'Dirección del Centro Nacional de Preservación Documental' },
 ];
 
 const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]> = {
