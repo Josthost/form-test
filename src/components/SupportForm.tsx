@@ -7,171 +7,171 @@ import { validateForm } from '../utils/validation';
 import { sendEmail } from '../utils/emailService';
 
 const DEPARTMENTS = [
-  { value: 'direccion-general', label: 'Dirección General' },
-  { value: 'consultoria-juridica', label: 'Consultoría Jurídica' },
-  { value: 'auditoria-juridica', label: 'Auditoría Jurídica' },
-  { value: 'planificacion-estrategica-y-control-de-gestion', label: 'Oficina de Planificacion Estrategica y Control de Gestión' },
-  { value: 'comunicacion-e-imagen', label: 'Oficina de Comunicación e Imagen Institucional' },
-  { value: 'oficina-de-administracion', label: 'Oficina de Administración' },
-  { value: 'oficina-de-recursos-humanos', label: 'Oficina de Recursos Humanos' },
-  { value: 'oficina-de-tecnologia-de-la-informacion', label: 'Oficina de Técnologia de la Información' },
-  { value: 'oficina-de-mantenimiento-de-servicios-generales', label: 'Oficina de Mantenimiento de Servicios Generales' },
-  { value: 'seguridad-integral', label: 'Seguridad Integral' },
-  { value: 'extension-cultural', label: 'Extensión Cultural' },
-  { value: 'direccion-de-programa-de-servicios-de-la-biblioteca-nacional', label: 'Dirección de Programa de Servicios de la Biblioteca Nacional' },
-  { value: 'direccion-de-programa-de-servicios-bibliotecas-publicas', label: 'Dirección de Programa de Servicios Bibliotecas Públicas' },
-  { value: 'direccion-de-programa-de-servicios-tecnicos-bibliotecarios', label: 'Dirección de programa de Servicios Técnicos Bibliotecarios' },
-  { value: 'direccion-de-orientacion-y-referencia', label: 'Dirección de Orientación y Referencia' },
-  { value: 'direccion-coleccion-bibliografica', label: 'Dirección Colección Bibliográfica' },
-  { value: 'direccion-coleccion-audiovisual', label: 'Dirección Colección Audiovisual' },
-  { value: 'direccion-de-la-red-metropolitana-de-bibliotecas-publicas', label: 'Dirección de la Red Metropolitana de Bibliotecas Públicas' },
-  { value: 'direccion-de-redes-estatales-de-bibliotecas-publicas', label: 'Dirección de Redes Estatales de Bilbiotecas Públicas' },
-  { value: 'direccion-de-desarrollo-de-colecciones', label: 'Dirección de Desarrollo de Colecciones' },
-  { value: 'direccion-de-procesos-tecnicos', label: 'Dirección de Procesos Técnicos' },
-  { value: 'direccion-del-centro-nacional-de-preservacion-documental', label: 'Dirección del Centro Nacional de Preservación Documental' },
+  { value: 'Dirección General', label: 'Dirección General' },
+  { value: 'Consultoría Jurídica', label: 'Consultoría Jurídica' },
+  { value: 'Auditoría Jurídica', label: 'Auditoría Jurídica' },
+  { value: 'Oficina de Planificacion Estrategica y Control de Gestión', label: 'Oficina de Planificacion Estrategica y Control de Gestión' },
+  { value: 'Oficina de Comunicación e Imagen Institucional', label: 'Oficina de Comunicación e Imagen Institucional' },
+  { value: 'Oficina de Administración', label: 'Oficina de Administración' },
+  { value: 'Oficina de Recursos Humanos', label: 'Oficina de Recursos Humanos' },
+  { value: 'Oficina de Técnologia de la Información', label: 'Oficina de Técnologia de la Información' },
+  { value: 'Oficina de Mantenimiento de Servicios Generales', label: 'Oficina de Mantenimiento de Servicios Generales' },
+  { value: 'Seguridad Integral', label: 'Seguridad Integral' },
+  { value: 'Extensión Cultural', label: 'Extensión Cultural' },
+  { value: 'Dirección de Programa de Servicios de la Biblioteca Nacional', label: 'Dirección de Programa de Servicios de la Biblioteca Nacional' },
+  { value: 'Dirección de Programa de Servicios Bibliotecas Públicas', label: 'Dirección de Programa de Servicios Bibliotecas Públicas' },
+  { value: 'Dirección de programa de Servicios Técnicos Bibliotecarios', label: 'Dirección de programa de Servicios Técnicos Bibliotecarios' },
+  { value: 'Dirección de Orientación y Referencia', label: 'Dirección de Orientación y Referencia' },
+  { value: 'Dirección Colección Bibliográfica', label: 'Dirección Colección Bibliográfica' },
+  { value: 'Dirección Colección Audiovisual', label: 'Dirección Colección Audiovisual' },
+  { value: 'Dirección de la Red Metropolitana de Bibliotecas Públicas', label: 'Dirección de la Red Metropolitana de Bibliotecas Públicas' },
+  { value: 'Dirección de Redes Estatales de Bilbiotecas Públicas', label: 'Dirección de Redes Estatales de Bilbiotecas Públicas' },
+  { value: 'Dirección de Desarrollo de Colecciones', label: 'Dirección de Desarrollo de Colecciones' },
+  { value: 'Dirección de Procesos Técnicos', label: 'Dirección de Procesos Técnicos' },
+  { value: 'Dirección del Centro Nacional de Preservación Documental', label: 'Dirección del Centro Nacional de Preservación Documental' },
 ];
 
 const DIVISIONS_BY_DEPARTMENT: Record<string, { value: string; label: string }[]> = {
-  'direccion-general': [
-    { value: 'archivo-general', label: 'Archivo General' },
-    { value: 'apoyo-administrativo', label: 'Apoyo Administrativo' },
-    { value: 'servicios-generales', label: 'Servicios Generales' },
+  'Dirección General': [
+    { value: 'Archivo General', label: 'Archivo General' },
+    { value: 'Apoyo Administrativo', label: 'Apoyo Administrativo' },
+    { value: 'Servicios Generales', label: 'Servicios Generales' },
   ],
-  'consultoria-juridica': [
-    { value: 'consulturia-juridica', label: 'Consultoría Jurídica' },
+  'Consultoría Jurídica': [
+    { value: 'Consultoría Jurídica', label: 'Consultoría Jurídica' },
   ],
-  'auditoria-juridica': [
-    { value: 'auditoria-de-gestion', label: 'Auditoría de Gestión' },
-    { value: 'auditoria-financiera', label: 'Auditoría Financiera' },
-    { value: 'averiguaciones-administrativa', label: 'Averiguaciones Administrativa' },
+  'Auditoría Jurídica': [
+    { value: 'Auditoría de Gestión', label: 'Auditoría de Gestión' },
+    { value: 'Auditoría Financiera', label: 'Auditoría Financiera' },
+    { value: 'Averiguaciones Administrativa', label: 'Averiguaciones Administrativa' },
   ],
-  'planificacion-estrategica-y-control-de-gestion': [
-    { value: 'planes-programas-proyectos', label: 'Planes, Programas y Proyectos' },
-    { value: 'presupuesto', label: 'Presupuesto' },
-    { value: 'desarrollo-organizacional', label: 'Desarrollo Organizacional' },
-    { value: 'investigacion-estadistica', label: 'Investigación y Estadística' },
+  'Oficina de Planificacion Estrategica y Control de Gestión': [
+    { value: 'Planes, Programas y Proyectos', label: 'Planes, Programas y Proyectos' },
+    { value: 'Presupuesto', label: 'Presupuesto' },
+    { value: 'Desarrollo Organizacional', label: 'Desarrollo Organizacional' },
+    { value: 'Investigación y Estadística', label: 'Investigación y Estadística' },
   ],
-  'comunicacion-e-imagen': [
-    { value: 'publicaciones-institucionales', label: 'Publicaciones Institucionales' },
-    { value: 'coordinacion-de-publicaciones-divulgativas', label: 'Coordinación de Publicaciones Divulgativas' },
-    { value: 'coordinacion-produccion.audiovisual', label: 'Coordinación de Producción Audiovisual' },
+  'Oficina de Comunicación e Imagen Institucional': [
+    { value: 'Publicaciones Institucionales', label: 'Publicaciones Institucionales' },
+    { value: 'Coordinación de Publicaciones Divulgativas', label: 'Coordinación de Publicaciones Divulgativas' },
+    { value: 'Coordinación de Producción Audiovisual', label: 'Coordinación de Producción Audiovisual' },
   ],
-  'oficina-de-administracion': [
-    { value: 'compras', label: 'Compras' },
-    { value: 'finanzas', label: 'Finanzas' },
-    { value: 'contabilidad', label: 'Contabilidad' },
+  'Oficina de Administración': [
+    { value: 'Compras', label: 'Compras' },
+    { value: 'Finanzas', label: 'Finanzas' },
+    { value: 'Contabilidad', label: 'Contabilidad' },
   ],
-  'oficina-de-recursos-humanos': [
-    { value: 'Desarrollo-y-gestion-humana', label: 'Desarrollo y Gestión Humana' },
-    { value: 'nomina-y-gestion-administrativa', label: 'Nomina y Gestión Administrativa' },
-    { value: 'bienestar-social', label: 'Bienestar Social' },
+  'Oficina de Recursos Humanos': [
+    { value: 'Desarrollo y Gestión Humana', label: 'Desarrollo y Gestión Humana' },
+    { value: 'Nomina y Gestión Administrativa', label: 'Nomina y Gestión Administrativa' },
+    { value: 'Bienestar Social', label: 'Bienestar Social' },
   ],
-  'oficina-de-tecnologia-de-la-informacion': [
-    { value: 'sistemas', label: 'Sistemas' },
-    { value: 'atencion-tecnologica', label: 'Atención Técnologica' },
+  'Oficina de Técnologia de la Información': [
+    { value: 'Sistemas', label: 'Sistemas' },
+    { value: 'Atención Técnologica', label: 'Atención Técnologica' },
   ],
-  'oficina-de-mantenimiento-de-servicios-generales': [
-    { value: 'servicios-internos', label: 'Servicios Internos' },
-    { value: 'servicios-contratados', label: 'Servicios Contratados' },
-    { value: 'equipos-y-sistemas', label: 'Equipos y Sistemas' },
-    { value: 'infractructura', label: 'Infrastructura' },
+  'Oficina de Mantenimiento de Servicios Generales': [
+    { value: 'Servicios Internos', label: 'Servicios Internos' },
+    { value: 'Servicios Contratados', label: 'Servicios Contratados' },
+    { value: 'Equipos y Sistemas', label: 'Equipos y Sistemas' },
+    { value: 'Infrastructura', label: 'Infrastructura' },
   ],
-  'seguridad-integral': [
-    { value: 'seguridad-fisica', label: 'Seguridad Fisica' },
-    { value: 'tecnologia-de-seguridad', label: 'Técnologia de Seguridad' },
-    { value: 'higiene-y-control-de-riesgo', label: 'Higiene y Control de Riesgo' },
+  'Seguridad Integral': [
+    { value: 'Seguridad Fisica', label: 'Seguridad Fisica' },
+    { value: 'Técnologia de Seguridad', label: 'Técnologia de Seguridad' },
+    { value: 'Higiene y Control de Riesgo', label: 'Higiene y Control de Riesgo' },
   ],
-  'extension-cultural': [
-    { value: 'produccion-y-montaje', label: 'Producción y Montaje' },
-    { value: 'programacion-y-promocion', label: 'Programación y Promoción' },
+  'Extensión Cultural': [
+    { value: 'Producción y Montaje', label: 'Producción y Montaje' },
+    { value: 'Programación y Promoción', label: 'Programación y Promoción' },
   ],
-  'direccion-de-programa-de-servicios-de-la-biblioteca-nacional': [
-    { value: 'sin-division', label: 'Sin División' },
+  'Dirección de Programa de Servicios de la Biblioteca Nacional': [
+    { value: 'Sin División', label: 'Sin División' },
   ],
-  'direccion-de-programa-de-servicios-bibliotecas-publicas': [
-    { value: 'desarrollo-de-servicios-especiales-de-informacion', label: 'Desarrollo de Servicios Especiales de Información' },
+  'Dirección de Programa de Servicios Bibliotecas Públicas': [
+    { value: 'Desarrollo de Servicios Especiales de Información', label: 'Desarrollo de Servicios Especiales de Información' },
   ],
-  'direccion-de-programa-de-servicios-tecnicos-bibliotecarios': [
-    { value: 'normalizacion-tecnica', label: 'Normalización Técnica' },
+  'Dirección de programa de Servicios Técnicos Bibliotecarios': [
+    { value: 'Normalización Técnica', label: 'Normalización Técnica' },
   ],
-  'direccion-de-orientacion-y-referencia': [
-    { value: 'documentacion-e-informacion-bibliotecologica', label: 'Documentación e Información Bibliotecológica' },
+  'Dirección de Orientación y Referencia': [
+    { value: 'Documentación e Información Bibliotecológica', label: 'Documentación e Información Bibliotecológica' },
   ],
-  'direccion-coleccion-bibliografica': [
-    { value: 'coleccion-documental-antigua', label: 'Colección Documental Antigua' },
-    { value: 'coleccion-tulio-febres-cordero', label: 'Colección Tulio Febres Cordero (Mérida)' },
-    { value: 'coleccion-bibliografica-contemporanea', label: 'Colección Bibliográfica Contemporanea' },
+  'Dirección Colección Bibliográfica': [
+    { value: 'Colección Documental Antigua', label: 'Colección Documental Antigua' },
+    { value: 'Colección Tulio Febres Cordero (Mérida)', label: 'Colección Tulio Febres Cordero (Mérida)' },
+    { value: 'Colección Bibliográfica Contemporanea', label: 'Colección Bibliográfica Contemporanea' },
   ],
-  'direccion-coleccion-audiovisual': [
-    { value: 'coleccion-sonido-y-cine', label: 'Colección Sonido y Cine' },
-    { value: 'coleccion-obras-planas', label: 'Colección Obras Planas' },
+  'Dirección Colección Audiovisual': [
+    { value: 'Colección Sonido y Cine', label: 'Colección Sonido y Cine' },
+    { value: 'Colección Obras Planas', label: 'Colección Obras Planas' },
   ],
-  'direccion-de-la-red-metropolitana-de-bibliotecas-publicas': [
-    { value: 'bpc-simon-rodriguez', label: 'BPC Simón Rodríguez' },
+  'Dirección de la Red Metropolitana de Bibliotecas Públicas': [
+    { value: 'BPC Simón Rodríguez', label: 'BPC Simón Rodríguez' },
   ],
-  'direccion-de-redes-estatales-de-bibliotecas-publicas': [
-    { value: 'sin-division', label: 'Sin división' },
+  'Dirección de Redes Estatales de Bilbiotecas Públicas': [
+    { value: 'Sin división', label: 'Sin división' },
   ],
-  'direccion-de-desarrollo-de-colecciones': [
-    { value: 'recepcion-y-distribucion', label: 'Recepción y Distribución' },
-    { value: 'adquisiciones', label: 'Adquisiciones' },
-    { value: 'deposito-legal', label: 'Depósito Legal' },
-    { value: 'control-y-evaluacion', label: 'Control y Evaluación' },
+  'Dirección de Desarrollo de Colecciones': [
+    { value: 'Recepción y Distribución', label: 'Recepción y Distribución' },
+    { value: 'Adquisiciones', label: 'Adquisiciones' },
+    { value: 'Depósito Legal', label: 'Depósito Legal' },
+    { value: 'Control y Evaluación', label: 'Control y Evaluación' },
   ],
-  'direccion-de-procesos-tecnicos': [
-    { value: 'registro', label: 'Registro' },
-    { value: 'control-de-calidad', label: 'COntrol de Calidad' },
-    { value: 'catalogacion-y-clasificacion-de-materiales-bibliograficos-y-seriado', label: 'Catalogación y Clasificación de Materiales Bibliográficos y Seriado' },
-    { value: 'catalogacion-y-clasificacion-de-materiales-audiovisuales', label: 'Catalogación y Clasificación de Materiales Audiovisuales' },
+  'Dirección de Procesos Técnicos': [
+    { value: 'Registro', label: 'Registro' },
+    { value: 'Control de Calidad', label: 'Control de Calidad' },
+    { value: 'Catalogación y Clasificación de Materiales Bibliográficos y Seriado', label: 'Catalogación y Clasificación de Materiales Bibliográficos y Seriado' },
+    { value: 'Catalogación y Clasificación de Materiales Audiovisuales', label: 'Catalogación y Clasificación de Materiales Audiovisuales' },
   ],
-  'direccion-del-centro-nacional-de-preservacion-documental': [
-    { value: 'preservacion-de-colecciones', label: 'Preservación de Colecciones' },
-    { value: 'conservacion-de-colecciones', label: 'Conservación de Colecciones' },
-    { value: 'micrografia', label: 'Micrografía' },
-    { value: 'preservacion-por-duplicados', label: 'Preservación por Duplicados' },
+  'Dirección del Centro Nacional de Preservación Documental': [
+    { value: 'Preservación de Colecciones', label: 'Preservación de Colecciones' },
+    { value: 'Conservación de Colecciones', label: 'Conservación de Colecciones' },
+    { value: 'Micrografía', label: 'Micrografía' },
+    { value: 'Preservación por Duplicados', label: 'Preservación por Duplicados' },
   ],
 };
 
 const SERVICES = [
-  { value: 'correo-institucional', label: 'Correo Institucional' },
-  { value: 'sigesp', label: 'SIGESP' },
-  { value: 'wordpress', label: 'Wordpress' },
-  { value: 'intranet', label: 'Intranet' },
-  { value: 'psi', label: 'PSI' },
+  { value: 'Correo Institucional', label: 'Correo Institucional' },
+  { value: 'SIGESP', label: 'SIGESP' },
+  { value: 'Wordpress', label: 'Wordpress' },
+  { value: 'Intranet', label: 'Intranet' },
+  { value: 'PSI', label: 'PSI' },
 ];
 
 const MODULES_BY_SERVICE: Record<string, { value: string; label: string }[]> = {
-  'correo-institucional': [
-    { value: 'creacion-nuevo-correo', label: 'Creación de Nuevo Correo' },
-    // { value: 'recuperacion-password', label: 'Recuperación de Contraseña' },
-    // { value: 'configuracion-outlook', label: 'Configuración Outlook' },
-    // { value: 'problemas-envio', label: 'Problemas de Envío' },
+  'Correo Institucional': [
+    { value: 'Creación de Nuevo Correo', label: 'Creación de Nuevo Correo' },
+    // { value: 'Recuperación de Contraseña', label: 'Recuperación de Contraseña' },
+    // { value: 'Configuración Outlook', label: 'Configuración Outlook' },
+    // { value: 'Problemas de Envío', label: 'Problemas de Envío' },
   ],
-  'sigesp': [
-    { value: 'nomina', label: 'Nómina' },
-    { value: 'recursos-humanos', label: 'Recursos Humanos' },
-    { value: 'gestion-humana', label: 'Gestión Humana' },
-    { value: 'administración', label: 'Administración' },
-    { value: 'compras', label: 'Compras' },
-    { value: 'contabilidad', label: 'Contabilidad' },
-    { value: 'bienes-nacionales', label: 'Bienes Nacionales' },
-    { value: 'finanza', label: 'Finanza' },
+  'SIGESP': [
+    { value: 'Nómina', label: 'Nómina' },
+    { value: 'Recursos Humanos', label: 'Recursos Humanos' },
+    { value: 'Gestión Humana', label: 'Gestión Humana' },
+    { value: 'Administración', label: 'Administración' },
+    { value: 'Compras', label: 'Compras' },
+    { value: 'Contabilidad', label: 'Contabilidad' },
+    { value: 'Bienes Nacionales', label: 'Bienes Nacionales' },
+    { value: 'Finanza', label: 'Finanza' },
     { value: 'Presupuesto', label: 'Presupuesto' },
   ],
-  'wordpress': [
-    { value: 'biblioteca-digital', label: 'Biblioteca Digital' },
-    { value: 'audiovisual', label: 'Audiovisual' },
-    { value: 'mama-rosa', label: 'Mama Rosa' },
-    { value: 'pagina-web', label: 'Pagina Web' },
-    { value: 'intranet', label: 'Intranet' },
-    { value: 'pnf', label: 'PNF' },
-    { value: 'atencion-ciudadana', label: 'Atención Ciudadana' },
+  'Wordpress': [
+    { value: 'Biblioteca Digital', label: 'Biblioteca Digital' },
+    { value: 'Audiovisual', label: 'Audiovisual' },
+    { value: 'Mama Rosa', label: 'Mama Rosa' },
+    { value: 'Pagina Web', label: 'Pagina Web' },
+    { value: 'Intranet', label: 'Intranet' },
+    { value: 'PNF', label: 'PNF' },
+    { value: 'Atención Ciudadana', label: 'Atención Ciudadana' },
 
   ],
-  'intranet': [
-    { value: 'usuario', label: 'Usuario' },
+  'Intranet': [
+    { value: 'Usuario', label: 'Usuario' },
   ],
-  'psi': [
+  'PSI': [
     { value: '', label: '' },
   ],
 };
