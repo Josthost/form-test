@@ -32,7 +32,7 @@ const FormField: React.FC<FormFieldProps> = ({
             error ? 'border-red-500' : 'border-gray-300'
           }`}
           style={{ 
-            focusRingColor: '#A70336',
+            focusRingColor: '#273376',
             color: '#273376'
           }}
           rows={4}
@@ -47,8 +47,8 @@ const FormField: React.FC<FormFieldProps> = ({
             error ? 'border-red-500' : 'border-gray-300'
           }`}
           style={{ 
-            focusRingColor: '#A70336',
-            // color: '#273376'
+            focusRingColor: '#273376',
+            // color: ''#A70336''
           }}
         >
           <option value="">-- Seleccionar --</option>
@@ -71,7 +71,7 @@ const FormField: React.FC<FormFieldProps> = ({
             error ? 'border-red-500' : 'border-gray-300'
           }`}
           style={{ 
-            focusRingColor: '#A70336',
+            focusRingColor: '#273376'
             // color: '#273376'
           }}
         />
