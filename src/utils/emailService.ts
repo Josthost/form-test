@@ -11,7 +11,7 @@ interface EmailParams {
   birthDate: string;
   service: string;
   module: string;
-  // description: string;
+  description: string;
   fecha_actual?: string;
 }
 
