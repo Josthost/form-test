@@ -9,7 +9,7 @@ export interface FormData {
   birthDate: string;
   service: string;
   module: string;
-  description: string;
+  // description: string;
 }
 
 export interface FormErrors {
@@ -23,7 +23,7 @@ export interface FormErrors {
   birthDate?: string;
   service?: string;
   module?: string;
-  description?: string;
+  // description?: string;
 }
 
 export interface FormFieldProps {
