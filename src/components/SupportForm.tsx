@@ -188,7 +188,7 @@ const SupportForm: React.FC = () => {
     birthDate: '',
     service: '',
     module: '',
-    // description: '',
+    description: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -269,7 +269,7 @@ const SupportForm: React.FC = () => {
           birthDate: '',
           service: '',
           module: '',
-          // description: '',
+          description: '',
         });
       } else {
         throw new Error('Error al enviar el correo');
@@ -419,7 +419,7 @@ const SupportForm: React.FC = () => {
           />
         </div>
         
-        {/* <FormField
+        <FormField
           id="description"
           label="Descripción del problema"
           type="textarea"
@@ -428,7 +428,7 @@ const SupportForm: React.FC = () => {
           error={errors.description}
           required
           placeholder="Describa detalladamente el problema o solicitud..."
-        /> */}
+        />
         
         <div className="mt-6">
           <button
