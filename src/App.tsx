@@ -10,7 +10,7 @@ function App() {
           <div className="flex items-center justify-center">
             <div className="flex items-center space-x-2">
               <HelpCircle className="h-8 w-8" />
-              <h1 className="text-2xl font-bold">Ticket Soporte BNV</h1>
+              <h1 className="text-2xl font-bold">Ticket Usuario BNV</h1>
             </div>
           </div>
         </div>
@@ -19,7 +19,7 @@ function App() {
       <main className="container mx-auto px-4 py-8">
         <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 border-t-4" style={{ borderTopColor: '#273376' }}>
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-2 text-black" style={{color: '#273376'}}>Formulario de Solicitud de Soporte</h2>
+            <h2 className="text-2xl font-bold mb-2 text-black" style={{color: '#273376'}}>Formulario de Solicitud de Usuario</h2>
             <p className="max-w-2xl mx-auto text-black">
               Complete el siguiente formulario para solicitar asistencia técnica. 
               Un miembro de nuestro equipo revisará su solicitud y se pondrá en contacto con usted a la brevedad.
